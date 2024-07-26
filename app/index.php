@@ -16,6 +16,8 @@ generateToken();
     <title>Opérations de Juillet 2023 - Mes Comptes</title>
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css">
+    <script type="module" src="./js/script.js"></script>
+
 </head>
 
 <body>
@@ -78,7 +80,7 @@ generateToken();
                         </tr>
                     </thead>
                     <tbody id="allTransactions">
-                        <tr>
+                        <!-- <tr>
                             <td width="50" class="ps-3">
                             </td>
                             <td >
@@ -207,7 +209,7 @@ generateToken();
                                     <i class="bi bi-trash"></i>
                                 </a>
                             </td>
-                        </tr>
+                        </tr> -->
                     </tbody>
                 </table>
             </div>
@@ -287,7 +289,6 @@ generateToken();
 
 
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
-    <script type="module" src="./js/script.js"></script>
 
 </body>
 
