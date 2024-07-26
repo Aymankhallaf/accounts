@@ -62,16 +62,16 @@ generateToken();
                 <form id="insertOperation" action="api.php" method="POST">
                     <div class="mb-3">
                         <label for="name" class="form-label">Nom de l'opération *</label>
-                        <input type="text" class="form-control" name="name" id="name" placeholder="Facture d'électricité" required>
+                        <input id = "nameOperation" type="text" class="form-control" name="name" id="name" placeholder="Facture d'électricité" required>
                     </div>
                     <div class="mb-3">
                         <label for="date" class="form-label">Date *</label>
-                        <input type="date" class="form-control" name="date" id="date" required>
+                        <input id="dateOperation" type="date" class="form-control" name="date" id="date" required>
                     </div>
                     <div class="mb-3">
                         <label for="amount" class="form-label">Montant *</label>
                         <div class="input-group">
-                            <input type="text" class="form-control" name="amount" id="amount" required>
+                            <input id="amountOperation" type="text" class="form-control" name="amount" id="amount" required>
                             <span class="input-group-text">€</span>
                         </div>
                     </div>

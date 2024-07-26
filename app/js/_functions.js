@@ -89,7 +89,7 @@ export function displayTransaction(transaction) {
         amount.classList.add(`bg-warning-subtle`);
 
     }
-   
+
     clone.getElementById('transactionName').appendChild(time)
     document.getElementById('allTransactions').appendChild(clone);
 
@@ -155,9 +155,9 @@ export function getSumMoney() {
  *send request to api to get get categories data.or return
  * @return {void} 
  */
-export function getCategories(){
+export function getCategories() {
 
-callApi("POST", {
+    callApi("POST", {
         action: "getCategories",
         token: getToken()
 
@@ -199,7 +199,7 @@ export function displayCategory(Category) {
  * @returns {boolean} false if not and true if it is valide.
  */
 function isValidateName(name, value) {
-    const namePattern = new RegExp( /^[a-zA-Z0-9_.-]*$/);
+    const namePattern = new RegExp(/^[a-zA-Z0-9_.-]*$/);
 
     if (!value) {
         displayErrorForm(`Le ${name} est obligatoire.`);
@@ -232,13 +232,27 @@ function isValideDate(dateInput) {
 
 /**
  * is valide amount ?  show the error if not.
+ * @param {string} amount input amount
+ * @returns {boolean} false if not and true if it is valide.
+ */
+function isValideAmount(amount) {
+    const regextel = new RegExp(/[0-9]/gi);
+
+    if (!regextel.test(amount)) {
+        displayError(`Le amount est invalide.`);
+        return false;
+    }
+    return true;
+
+}
+
+/**
+ * is valide amount ?  show the error if not.
  * @param {string} tel input amount
  * @returns {boolean} false if not and true if it is valide.
  */
-function isValideAmounr(tel) {
-    const regextel = new RegExp(/[0-9]/gi);
-
-    if (!regextel.test(tel)) {
+function isValideCategoryId(id) {
+    if (!id < 0 || !id > 10) {
         displayError(`Le amount est invalide.`);
         return false;
     }
@@ -247,23 +261,41 @@ function isValideAmounr(tel) {
 }
 
 
-export function insertOperation(){
+export function insertOperation(e) {
+    if (!isValidateName(document.getElementById("nameOperation").value)) return;
+    if (!isValideDate(document.getElementById("dateOperation").value)) return;
+    if (!isValideAmount(document.getElementById("amountOperation").value)) return;
+    if (!isValideAmount(e.target.value)) return;
+    if (!isValideCategoryId(e.target.value)) return;
 
     callApi("POST", {
-            action: "insertOperation",
-            token: getToken()
-    
-        }).then(data => {
-            if (!data.isOk || !data[token] === getToken()) {
-                displayError(data['errorMessage']);
-                return;
-            }
-            data["categories"].forEach(Category => {
-    
-                displayCategory(Category);
-            });
-    
-            console.log(data);
+        action: "insertOperation",
+        token: getToken(),
+        
+        nameOperation: document.getElementById("nameOperation").value,
+        dateOperation: document.getElementById("dateOperation").value,
+        amountOperation:document.getElementById("amountOperation").value,
+        categoryId:document.getElementById("amountOperation").value,
+
+
+    }).then(data => {
+        if (!data.isOk || !data[token] === getToken()) {
+            displayError(data['errorMessage']);
+            return;
+        }
+        data["categories"].forEach(Category => {
+
+            displayCategory(Category);
         });
-    
-    }
+
+        console.log(data);
+    });
+
+}
+
+function handleSubmit(e) {
+
+   
+   
+
+}
