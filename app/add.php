@@ -103,6 +103,12 @@ generateToken();
         </a>
     </div>
 
+
+    <!-- categories templates -->
+    <template id="categoriesTemplate">
+        <option class = "js-category" value="1">Nourriture</option>
+    </template>
+
     <footer class="py-3 mt-4 border-top">
         <p class="text-center text-body-secondary">© 2023 Mes comptes</p>
     </footer>

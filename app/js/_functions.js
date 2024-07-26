@@ -166,9 +166,22 @@ callApi("POST", {
             displayError(data['errorMessage']);
             return;
         }
-        document.getElementById('sumMoney').innerHTML = data["sumMoney"];
         console.log(data);
     });
+
+}
+
+
+/**
+ * Display Category(Category) with template
+ * @param {object} Category 
+ */
+export function displayCategory(Category) {
+    const template = document.importNode(document.getElementById('categoriesTemplate').content, true);
+    const CategoryT = template.querySelector('.js-category')
+    CategoryT.innerText = Category['category_name'];
+    CategoryT.value = Category['id_category'];
+    document.getElementById('category').appendChild(CategoryT);
 
 }
 
