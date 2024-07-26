@@ -41,8 +41,7 @@ var_dump("hello");
             </nav>
             <form action="" class="col-12 col-md-4" role="search">
                 <div class="input-group">
-                    <input type="text" class="form-control" placeholder="Rechercher..."
-                        aria-describedby="button-search">
+                    <input type="text" class="form-control" placeholder="Rechercher..." aria-describedby="button-search">
                     <button class="btn btn-primary" type="submit" id="button-search">
                         <i class="bi bi-search"></i>
                     </button>
@@ -242,9 +241,45 @@ var_dump("hello");
         </a>
     </div>
 
+
+    <!-- templates  -->
+    <template id="transaction">
+        <tr>
+            <td width="50" class="ps-3">
+            </td>
+            <td>
+                <time datetime="2023-07-10" class="d-block fst-italic fw-light">10/07/2023</time>
+                Bar
+            </td>
+            <td class="text-end">
+                <span class="rounded-pill text-nowrap bg-warning-subtle px-2">
+                    - 32,00 €
+                </span>
+            </td>
+            <td class="text-end text-nowrap">
+                <a href="#" class="btn btn-outline-primary btn-sm rounded-circle">
+                    <i class="bi bi-pencil"></i>
+                </a>
+                <a href="#" class="btn btn-outline-danger btn-sm rounded-circle">
+                    <i class="bi bi-trash"></i>
+                </a>
+            </td>
+        </tr>
+    </template>
+
+    <!-- error messages -->
+    <template id="templateError">
+        <li data-error-message="" class="errors__itm">Ici vient le message d'erreur</li>
+    </template>
+
+    <template id="templateMessage">
+        <li data-message="" class="messages__itm">Ici vient le message</li>
+    </template>
+
     <footer class="py-3 mt-4 border-top">
         <p class="text-center text-body-secondary">© 2023 Mes comptes</p>
     </footer>
+
 
 
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
