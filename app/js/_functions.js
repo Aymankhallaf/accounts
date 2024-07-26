@@ -72,3 +72,7 @@ export function displayTransaction(transaction) {
     document.getElementById('hall').appendChild(option);
 
 }
+
+export function sayHello(){
+    console.log("hello")
+}
