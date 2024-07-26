@@ -62,3 +62,13 @@ export function displayMessage(message) {
     document.getElementById('messagesList').appendChild(li);
     setTimeout(() => m.remove(), 2000);
 }
+
+
+export function displayTransaction(transaction) {
+    const template = document.importNode(document.getElementById('transaction').content, true);
+    const option = template.querySelector('.js-hall-option')
+    option.innerText = gym['name_gym'];
+    option.value = gym['id_gym'];
+    document.getElementById('hall').appendChild(option);
+
+}

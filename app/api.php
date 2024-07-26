@@ -20,3 +20,6 @@ stripTagsArray($inputData);
 if (!isTokenOk($inputData['token'])) {
     triggerError('token', $_SESSION['token']);
 }
+
+
+getAllTransactionsByDate($dbCo);
