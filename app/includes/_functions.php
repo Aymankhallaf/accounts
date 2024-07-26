@@ -73,10 +73,29 @@ function stripTagsArray(array &$data): void
 }
 
 
-
-
-function getAllTransactionsByDate(PDO $dbCo){
+function getTransactionsByMonth(PDO $dbCo, $month){
     $query = $dbCo->prepare("SELECT * FROM `transaction` ORDER BY `transaction`.`date_transaction` ASC");
+    $isQueryOk = $query->execute();
+
+    $AllTransactions = $query->fetchAll();
+    if (!$isQueryOk) {
+        triggerError("connection");
+    }
+    echo json_encode([
+        'isOk' => $isQueryOk,
+        "token"=> $_SESSION['token'],
+        $AllTransactions 
+    ]);
+}
+
+
+/**
+ * Gets all Transactions order by date desc.
+ * @param PDO $dbCo db connection.
+ * @return void
+ */
+function getAllTransactions(PDO $dbCo){
+    $query = $dbCo->prepare("SELECT * FROM `transaction` ORDER BY `transaction`.`date_transaction` DESC");
     $isQueryOk = $query->execute();
 
     $AllTransactions = $query->fetchAll();

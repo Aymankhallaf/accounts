@@ -23,7 +23,7 @@ if (!isTokenOk($inputData['token'])) {
 
 if ($_SERVER['REQUEST_METHOD'] === 'POST' && $inputData['action'] === 'getTransaction'){
 
-    getAllTransactionsByDate($dbCo);
+    getAllTransactions($dbCo);
 }
 
 
