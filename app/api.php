@@ -4,8 +4,6 @@ session_start();
 require_once 'includes/_connection.php';
 require_once 'includes/_functions.php';
 
-var_dump("hello");
-
 
 header('Content-type:application/json');
 //prenvent visteurs acess to this page
@@ -22,4 +20,9 @@ if (!isTokenOk($inputData['token'])) {
 }
 
 
-getAllTransactionsByDate($dbCo);
+if ($_SERVER['REQUEST_METHOD'] === 'POST' && $inputData['action'] === 'getTransaction'){
+
+    getAllTransactionsByDate($dbCo);
+}
+
+
