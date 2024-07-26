@@ -155,7 +155,7 @@ function getSumMoney(PDO $dbCo): void
  */
 function getCategories(PDO $dbCo): void
 {
-    $query = $dbCo->prepare("SELECT * FROM `category`");
+    $query = $dbCo->prepare("SELECT id_category , category_name FROM `category`");
     $isQueryOk = $query->execute();
 
     $categories = $query->fetchAll();

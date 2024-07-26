@@ -166,6 +166,11 @@ callApi("POST", {
             displayError(data['errorMessage']);
             return;
         }
+        data["categories"].forEach(Category => {
+
+            displayCategory(Category);
+        });
+
         console.log(data);
     });
 

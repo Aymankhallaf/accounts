@@ -80,13 +80,6 @@ generateToken();
                         <label for="category" class="form-label">Catégorie</label>
                         <select class="form-select" name="category" id="category">
                             <option value="" selected>Aucune catégorie</option>
-                            <option value="1">Nourriture</option>
-                            <option value="2">Loisir</option>
-                            <option value="3">Travail</option>
-                            <option value="4">Voyage</option>
-                            <option value="5">Sport</option>
-                            <option value="6">Habitat</option>
-                            <option value="7">Cadeaux</option>
                         </select>
                     </div>
                     <div class="text-center">
