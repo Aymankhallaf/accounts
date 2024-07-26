@@ -168,3 +168,15 @@ function getCategories(PDO $dbCo): void
         "categories" => $categories
     ]);
 }
+
+
+/**
+ * insert operation
+ * @param PDO $dbCo db connection
+ * @return void
+ */
+function insertOperation(PDO $dbCo): void
+{
+   
+}
+

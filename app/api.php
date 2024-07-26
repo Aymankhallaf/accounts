@@ -35,3 +35,8 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && $inputData['action'] === 'getSumMon
 if ($_SERVER['REQUEST_METHOD'] === 'POST' && $inputData['action'] === 'getCategories') {
     getCategories($dbCo);
 }
+
+
+if ($_SERVER['REQUEST_METHOD'] === 'POST' && $inputData['action'] === 'insertOperation') {
+    
+}
