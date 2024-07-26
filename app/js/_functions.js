@@ -99,18 +99,17 @@ export function getTransactions() {
         token: getToken()
 
     }).then(data => {
-        if (!data.isOk) {
+        if (!data.isOk ||! data[token]===getToken()) {
             displayError(data['errorMessage']);
             return;
         }
         console.log("ok");
         console.log(data);
-        let dataTest = { "id_transaction": 1, "name": "Bar", "amount": "-21.00", "date_transaction": "2023-06-10", "id_category": 7 }
-        displayTransaction(dataTest);
-        // data[0].forEach(transaction => {
+      
+        data[0].forEach(transaction => {
 
-        //     displayTransaction(transaction);
-        // });
+            displayTransaction(transaction);
+        });
 
 
     });
