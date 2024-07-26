@@ -77,11 +77,11 @@ generateToken();
                             <th scope="col" class="text-end">Actions</th>
                         </tr>
                     </thead>
-                    <tbody>
+                    <tbody id="allTransactions">
                         <tr>
                             <td width="50" class="ps-3">
                             </td>
-                            <td>
+                            <td >
                                 <time datetime="2023-07-10" class="d-block fst-italic fw-light">10/07/2023</time>
                                 Bar
                             </td>
@@ -247,15 +247,15 @@ generateToken();
 
 
     <!-- templates  -->
-    <template id="transaction">
+    <template id="transactionTemplate">
         <tr>
             <td width="50" class="ps-3">
             </td>
-            <td>
+            <td id="transactionName">
                 <time datetime="2023-07-10" class="d-block fst-italic fw-light">10/07/2023</time>
                 Bar
             </td>
-            <td class="text-end">
+            <td id="transactionAmount" class="text-end">
                 <span class="rounded-pill text-nowrap bg-warning-subtle px-2">
                     - 32,00 €
                 </span>

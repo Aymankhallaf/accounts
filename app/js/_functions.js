@@ -64,12 +64,15 @@ export function displayMessage(message) {
 }
 
 
+
 export function displayTransaction(transaction) {
-    const template = document.importNode(document.getElementById('transaction').content, true);
-    const option = template.querySelector('.js-hall-option')
-    option.innerText = gym['name_gym'];
-    option.value = gym['id_gym'];
-    document.getElementById('hall').appendChild(option);
+    const template = document.importNode(document.getElementById('transactionTemplate').content, true);
+    template.getElementById('transactionName').innerText = transaction['amount'];
+    const time = template.querySelector('[datetime]');
+    time.datetime = transaction['date_transaction'];
+    time.innerText = transaction['date_transaction'];
+    template.getElementById('transactionAmount').innerText = transaction['amount'];
+    document.getElementById('allTransactions').appendChild(template);
 
 }
 
@@ -92,7 +95,7 @@ export function getTransactions() {
         }
         console.log(data);
 
-        });
+    });
 
 
 }

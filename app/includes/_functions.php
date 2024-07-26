@@ -84,6 +84,7 @@ function getAllTransactionsByDate(PDO $dbCo){
         triggerError("connection");
     }
     echo json_encode([
+        "token"=> $_SESSION['token'],
         $AllTransactions 
     ]);
 }
