@@ -37,6 +37,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && $inputData['action'] === 'getCatego
 }
 
 
+// to develop
 if ($_SERVER['REQUEST_METHOD'] === 'POST' && $inputData['action'] === 'insertOperation') {
-    
+    insertOperation( $dbCo);
 }

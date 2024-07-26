@@ -170,7 +170,7 @@ function getCategories(PDO $dbCo): void
 }
 
 
-/**
+/**to do
  * insert operation
  * @param PDO $dbCo db connection
  * @return void
