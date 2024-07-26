@@ -80,7 +80,7 @@ generateToken();
                         </tr>
                     </thead>
                     <tbody id="allTransactions">
-                        <tr>
+                        <!-- <tr>
                             <td width="50" class="ps-3">
                             </td>
                             <td >
@@ -209,7 +209,7 @@ generateToken();
                                     <i class="bi bi-trash"></i>
                                 </a>
                             </td>
-                        </tr>
+                        </tr> -->
                     </tbody>
                 </table>
             </div>
@@ -252,12 +252,12 @@ generateToken();
     <template id="transactionTemplate">
         <tr>
             <td width="50" class="ps-3">
-            <i id="categoryIcon" class="bi bi-car-front fs-3"></i>
+                <i id="categoryIcon" class="bi bi-car-front fs-3"></i>
 
             </td>
-            <td id="transactionName"><time  id="transactionTime" datetime="2023-07-10" class="d-block fst-italic fw-light">10/07/2023</time></td>
-            <td id="transactionAmount" class="text-end">
-                <span class="rounded-pill text-nowrap bg-warning-subtle px-2">
+            <td id="transactionName"><time id="transactionTime" datetime="2023-07-10" class="d-block fst-italic fw-light">10/07/2023</time></td>
+            <td  class="text-end">
+                <span id="transactionAmount" id="amount-color" class="js-amount-color rounded-pill text-nowrap  px-2">
                 </span>
             </td>
             <td class="text-end text-nowrap">
@@ -269,6 +269,11 @@ generateToken();
                 </a>
             </td>
         </tr>
+
+    </template>
+    <template id="amount">
+        <span id="amount-color" class="rounded-pill text-nowrap  px-2">
+        </span>
     </template>
 
     <!-- error messages -->

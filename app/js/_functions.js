@@ -76,11 +76,20 @@ export function displayMessage(message) {
 export function displayTransaction(transaction) {
     const clone = document.importNode(document.getElementById('transactionTemplate').content, true);
     const time = clone.getElementById('transactionTime');
+    const amount = clone.getElementById('transactionAmount');
     clone.getElementById('transactionName').innerText = transaction['name'];
     time.setAttribute("datetime", transaction['date_transaction']);
     time.textContent = transaction['date_transaction'].replace(/-/g, "/");
-    clone.getElementById('transactionAmount').innerText = transaction['amount'];
+    amount.innerText = transaction['amount'];
     clone.getElementById("categoryIcon").classList.add(`bi-${transaction['icon_class']}`)
+    if (parseInt(transaction['amount']) > 0) {
+        amount.classList.add(`bg-success-subtle`);
+    }
+    else {
+        amount.classList.add(`bg-warning-subtle`);
+
+    }
+   
     clone.getElementById('transactionName').appendChild(time)
     document.getElementById('allTransactions').appendChild(clone);
 
