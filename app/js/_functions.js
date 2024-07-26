@@ -67,11 +67,13 @@ export function displayMessage(message) {
 
 export function displayTransaction(transaction) {
     const clone = document.importNode(document.getElementById('transactionTemplate').content, true);
-    clone.getElementById('transactionName').innerText = transaction['amount'];
-    const time = clone.querySelector('[datetime]');
-    time.datetime = transaction['date_transaction'];
-    time.innerText = transaction['date_transaction'];
+    const time = clone.getElementById('transactionTime');
+    clone.getElementById('transactionName').innerText = transaction['name'];
+    time.setAttribute("datetime", transaction['date_transaction']);
+    time.textContent = transaction['date_transaction'].replace(/-/g, "/");
     clone.getElementById('transactionAmount').innerText = transaction['amount'];
+    console.log(time);
+    clone.getElementById('transactionName').appendChild(time)
     document.getElementById('allTransactions').appendChild(clone);
 
 }
@@ -95,9 +97,9 @@ export function getTransactions() {
         }
         console.log("ok");
         console.log(data);
-        let dataTest = {"id_transaction":1,"name":"Bar","amount":"-21.00","date_transaction":"2023-06-10","id_category":7}
-
-        displayTransaction(dataTest);
+        data[0].forEach(transaction => {
+            displayTransaction(transaction);
+        });
 
 
     });

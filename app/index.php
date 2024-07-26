@@ -253,13 +253,9 @@ generateToken();
         <tr>
             <td width="50" class="ps-3">
             </td>
-            <td id="transactionName">
-                <time datetime="2023-07-10" class="d-block fst-italic fw-light">10/07/2023</time>
-                Bar
-            </td>
+            <td id="transactionName"><time  id="transactionTime" datetime="2023-07-10" class="d-block fst-italic fw-light">10/07/2023</time></td>
             <td id="transactionAmount" class="text-end">
                 <span class="rounded-pill text-nowrap bg-warning-subtle px-2">
-                    - 32,00 €
                 </span>
             </td>
             <td class="text-end text-nowrap">
