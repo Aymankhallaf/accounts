@@ -87,6 +87,12 @@ export function displayTransaction(transaction) {
 }
 
 
+function getLogoCategory(idCategory){
+    
+
+}
+
+
 
 /**
  *

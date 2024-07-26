@@ -73,9 +73,16 @@ function stripTagsArray(array &$data): void
 }
 
 
+
+/**
+ * Gets Transactions by Date
+ * @param PDO $dbCo db connection
+ * @param string $dateMy ex'mm-yy'
+ * @return void
+ */
 function getTransactionsByDate(PDO $dbCo, $dateMy)
 {
-    $query = $dbCo->prepare("SELECT * FROM `transaction` WHERE
+    $query = $dbCo->prepare("SELECT * FROM `transaction` join `category` USING(id_category) WHERE
      DATE_FORMAT(date_transaction, '%Y-%m') =:dateMy
       ORDER BY `date_transaction` DESC");
     $isQueryOk = $query->execute([
@@ -99,7 +106,7 @@ function getTransactionsByDate(PDO $dbCo, $dateMy)
  * @param PDO $dbCo db connection.
  * @return void
  */
-function getAllTransactions(PDO $dbCo)
+function getAllTransactions(PDO $dbCo):void
 {
     $query = $dbCo->prepare("SELECT * FROM `transaction` ORDER BY `transaction`.`date_transaction` DESC");
     $isQueryOk = $query->execute();

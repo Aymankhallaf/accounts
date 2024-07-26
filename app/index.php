@@ -80,7 +80,7 @@ generateToken();
                         </tr>
                     </thead>
                     <tbody id="allTransactions">
-                        <!-- <tr>
+                        <tr>
                             <td width="50" class="ps-3">
                             </td>
                             <td >
@@ -209,7 +209,7 @@ generateToken();
                                     <i class="bi bi-trash"></i>
                                 </a>
                             </td>
-                        </tr> -->
+                        </tr>
                     </tbody>
                 </table>
             </div>

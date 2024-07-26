@@ -22,7 +22,8 @@ if (!isTokenOk($inputData['token'])) {
 
 
 if ($_SERVER['REQUEST_METHOD'] === 'POST' && $inputData['action'] === 'getTransaction') {
+    //this month and year
     $dateMY = date("Y-m");
-    getTransactionsByDate($dbCo, "2024-07");
-    // getAllTransactions($dbCo);
+    getTransactionsByDate($dbCo, $dateMY);
 }
+
