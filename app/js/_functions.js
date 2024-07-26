@@ -65,6 +65,14 @@ export function displayMessage(message) {
 
 
 
+
+
+/**
+ *
+ *display one element transaction.
+ * @param {object} transaction
+ * @return {void}
+ */
 export function displayTransaction(transaction) {
     const clone = document.importNode(document.getElementById('transactionTemplate').content, true);
     const time = clone.getElementById('transactionTime');
@@ -97,9 +105,12 @@ export function getTransactions() {
         }
         console.log("ok");
         console.log(data);
-        data[0].forEach(transaction => {
-            displayTransaction(transaction);
-        });
+        let dataTest = { "id_transaction": 1, "name": "Bar", "amount": "-21.00", "date_transaction": "2023-06-10", "id_category": 7 }
+        displayTransaction(dataTest);
+        // data[0].forEach(transaction => {
+
+        //     displayTransaction(transaction);
+        // });
 
 
     });
