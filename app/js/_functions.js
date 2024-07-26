@@ -73,6 +73,21 @@ export function displayTransaction(transaction) {
 
 }
 
-export function sayHello(){
-    console.log("hello")
+
+
+export function getTransaction() {
+    callApi("POST", {
+        action: "getTransaction",
+        token: getToken()
+
+    }).then(data => {
+        if (!data.isOk) {
+            displayError(data['errorMessage']);
+            return;
+        }
+        console.log(data);
+
+        });
+
+
 }
