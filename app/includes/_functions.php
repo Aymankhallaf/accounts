@@ -73,9 +73,14 @@ function stripTagsArray(array &$data): void
 }
 
 
-function getTransactionsByMonth(PDO $dbCo, $month){
-    $query = $dbCo->prepare("SELECT * FROM `transaction` ORDER BY `transaction`.`date_transaction` ASC");
-    $isQueryOk = $query->execute();
+function getTransactionsByDate(PDO $dbCo, $dateMy)
+{
+    $query = $dbCo->prepare("SELECT * FROM `transaction` WHERE
+     DATE_FORMAT(date_transaction, '%Y-%m') =:dateMy
+      ORDER BY `date_transaction` DESC");
+    $isQueryOk = $query->execute([
+        "dateMy" => $dateMy
+    ]);
 
     $AllTransactions = $query->fetchAll();
     if (!$isQueryOk) {
@@ -83,8 +88,8 @@ function getTransactionsByMonth(PDO $dbCo, $month){
     }
     echo json_encode([
         'isOk' => $isQueryOk,
-        "token"=> $_SESSION['token'],
-        $AllTransactions 
+        "token" => $_SESSION['token'],
+        $AllTransactions
     ]);
 }
 
@@ -94,7 +99,8 @@ function getTransactionsByMonth(PDO $dbCo, $month){
  * @param PDO $dbCo db connection.
  * @return void
  */
-function getAllTransactions(PDO $dbCo){
+function getAllTransactions(PDO $dbCo)
+{
     $query = $dbCo->prepare("SELECT * FROM `transaction` ORDER BY `transaction`.`date_transaction` DESC");
     $isQueryOk = $query->execute();
 
@@ -104,7 +110,7 @@ function getAllTransactions(PDO $dbCo){
     }
     echo json_encode([
         'isOk' => $isQueryOk,
-        "token"=> $_SESSION['token'],
-        $AllTransactions 
+        "token" => $_SESSION['token'],
+        $AllTransactions
     ]);
 }

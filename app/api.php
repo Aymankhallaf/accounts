@@ -6,7 +6,7 @@ require_once 'includes/_functions.php';
 
 
 
-header('Content-type:application/json');
+// header('Content-type:application/json');
 //prenvent visteurs acess to this page
 if (!isServerOk()) {
     triggerError('referer');
@@ -21,9 +21,8 @@ if (!isTokenOk($inputData['token'])) {
 }
 
 
-if ($_SERVER['REQUEST_METHOD'] === 'POST' && $inputData['action'] === 'getTransaction'){
-
-    getAllTransactions($dbCo);
+if ($_SERVER['REQUEST_METHOD'] === 'POST' && $inputData['action'] === 'getTransaction') {
+    $dateMY = date("Y-m");
+    getTransactionsByDate($dbCo, "2024-07");
+    // getAllTransactions($dbCo);
 }
-
-

@@ -103,9 +103,7 @@ export function getTransactions() {
             displayError(data['errorMessage']);
             return;
         }
-        console.log("ok");
-        console.log(data);
-      
+           
         data[0].forEach(transaction => {
 
             displayTransaction(transaction);
