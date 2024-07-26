@@ -36,3 +36,29 @@ export async function callApi(method, param) {
     }
 
 }
+
+
+
+/**
+ * Display error message with template
+ * @param {string} errorMessage 
+ */
+export function displayError(errorMessage) {
+    const li = document.importNode(document.getElementById('templateError').content, true);
+    const m = li.querySelector('[data-error-message]');
+    m.innerText = errorMessage;
+    document.getElementById('errorsList').appendChild(li);
+    setTimeout(() => m.remove(), 2000);
+}
+
+/**
+ * Display message with template
+ * @param {string} message 
+ */
+export function displayMessage(message) {
+    const li = document.importNode(document.getElementById('templateMessage').content, true);
+    const m = li.querySelector('[data-message]')
+    m.innerText = message;
+    document.getElementById('messagesList').appendChild(li);
+    setTimeout(() => m.remove(), 2000);
+}
