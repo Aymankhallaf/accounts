@@ -1,3 +1,10 @@
+<?php
+session_start();
+include_once 'includes/_connection.php';
+var_dump($dbCo);
+var_dump("hello");
+?>
+
 <!DOCTYPE html>
 <html lang="fr">
 
@@ -8,6 +15,23 @@
     <title>Opérations de Juillet 2023 - Mes Comptes</title>
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css">
+    <?php
+    if ($_ENV['ENV_TYPE'] === 'dev') {
+        // Developement integration for vite with run dev
+    ?>
+        <script type="module" src="http://localhost:5173/@vite/client"></script>
+        <script type="module" src="http://localhost:5173/js/script.js"></script>
+        <script type="module" src="./js/reservation/reservation.js"></script>
+        <script type="module" src="./js/createAccount.js"></script>
+
+    <?php
+    } else if ($_ENV['ENV_TYPE'] === 'prod') {
+        // Production integration for vite with run build
+        // Try this way to load assets from manifest.json
+        // https://github.com/andrefelipe/vite-php-setup
+    }
+
+    ?>
 </head>
 
 <body>
@@ -35,8 +59,7 @@
             </nav>
             <form action="" class="col-12 col-md-4" role="search">
                 <div class="input-group">
-                    <input type="text" class="form-control" placeholder="Rechercher..."
-                        aria-describedby="button-search">
+                    <input type="text" class="form-control" placeholder="Rechercher..." aria-describedby="button-search">
                     <button class="btn btn-primary" type="submit" id="button-search">
                         <i class="bi bi-search"></i>
                     </button>
