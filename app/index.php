@@ -19,8 +19,9 @@ generateToken();
 </head>
 
 <body>
-<span data-token="<?= $_SESSION['token']; ?>" class="hidden" id="token"></span>
-
+    <span data-token="<?= $_SESSION['token']; ?>" class="hidden" id="token"></span>
+    <ul id="errorsList" class="error"></ul>
+    <ul id="messagesList" class="messages"></ul>
     <div class="container-fluid">
         <header class="row flex-wrap justify-content-between align-items-center p-3 mb-4 border-bottom">
             <a href="index.html" class="col-1">
