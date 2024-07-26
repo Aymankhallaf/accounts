@@ -252,6 +252,8 @@ generateToken();
     <template id="transactionTemplate">
         <tr>
             <td width="50" class="ps-3">
+            <i id="categoryIcon" class="bi bi-car-front fs-3"></i>
+
             </td>
             <td id="transactionName"><time  id="transactionTime" datetime="2023-07-10" class="d-block fst-italic fw-light">10/07/2023</time></td>
             <td id="transactionAmount" class="text-end">

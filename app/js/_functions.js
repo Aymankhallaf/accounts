@@ -80,7 +80,7 @@ export function displayTransaction(transaction) {
     time.setAttribute("datetime", transaction['date_transaction']);
     time.textContent = transaction['date_transaction'].replace(/-/g, "/");
     clone.getElementById('transactionAmount').innerText = transaction['amount'];
-    console.log(time);
+    clone.getElementById("categoryIcon").classList.add(`bi-${transaction['icon_class']}`)
     clone.getElementById('transactionName').appendChild(time)
     document.getElementById('allTransactions').appendChild(clone);
 
