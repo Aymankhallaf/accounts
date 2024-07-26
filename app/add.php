@@ -20,7 +20,8 @@ generateToken();
 
 <body>
     <span data-token="<?= $_SESSION['token']; ?>" class="hidden" id="token"></span>
-
+    <ul id="errorsList" class="error"></ul>
+    <ul id="messagesList" class="messages"></ul>
     <div class="container-fluid">
         <header class="row flex-wrap justify-content-between align-items-center p-3 mb-4 border-bottom">
             <a href="index.html" class="col-1">
@@ -60,7 +61,8 @@ generateToken();
             </div>
             <div class="card-body">
                 <form id="insertOperation" action="api.php" method="POST">
-                    <div class="mb-3">
+                <input data-token="<?= $_SESSION['token']; ?>" class="hidden" id="token" value="<?= $_SESSION['token']; ?>">
+                <div class="mb-3">
                         <label for="name" class="form-label">Nom de l'opération *</label>
                         <input id = "nameOperation" type="text" class="form-control" name="name" id="name" placeholder="Facture d'électricité" required>
                     </div>

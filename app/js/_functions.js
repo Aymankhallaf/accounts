@@ -32,7 +32,7 @@ export async function callApi(method, param) {
     }
     catch (error) {
         console.error("Unable to load data from server : " + error);
-
+        displayError("Unable to load data from server : " + error);
     }
 
 }
@@ -143,7 +143,6 @@ export function getSumMoney() {
             return;
         }
         document.getElementById('sumMoney').innerHTML = data["sumMoney"];
-        console.log(data);
     });
 
 
@@ -262,6 +261,7 @@ function isValideCategoryId(id) {
 
 
 export function insertOperation(e) {
+    e.preventDefault();
     if (!isValidateName(document.getElementById("nameOperation").value)) return;
     if (!isValideDate(document.getElementById("dateOperation").value)) return;
     if (!isValideAmount(document.getElementById("amountOperation").value)) return;
@@ -271,7 +271,6 @@ export function insertOperation(e) {
     callApi("POST", {
         action: "insertOperation",
         token: getToken(),
-        
         nameOperation: document.getElementById("nameOperation").value,
         dateOperation: document.getElementById("dateOperation").value,
         amountOperation:document.getElementById("amountOperation").value,
