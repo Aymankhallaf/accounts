@@ -75,7 +75,12 @@ export function displayTransaction(transaction) {
 
 
 
-export function getTransaction() {
+/**
+ *
+ *send request to api to get transactions data.or return
+ * @return {void} 
+ */
+export function getTransactions() {
     callApi("POST", {
         action: "getTransaction",
         token: getToken()
