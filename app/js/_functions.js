@@ -150,6 +150,11 @@ export function getSumMoney() {
 }
 
 
+/**
+ *
+ *send request to api to get get categories data.or return
+ * @return {void} 
+ */
 export function getCategories(){
 
 callApi("POST", {
@@ -164,5 +169,61 @@ callApi("POST", {
         document.getElementById('sumMoney').innerHTML = data["sumMoney"];
         console.log(data);
     });
+
+}
+
+
+
+/**
+ * is a valide name input field? shows an error message.
+ * @param {string} name The name of the field being validated.
+ * @param {string} value The input value.
+ * @returns {boolean} false if not and true if it is valide.
+ */
+function isValidateName(name, value) {
+    const namePattern = new RegExp( /^[a-zA-Z0-9_.-]*$/);
+
+    if (!value) {
+        displayErrorForm(`Le ${name} est obligatoire.`);
+        return false;
+    }
+
+    if (!namePattern.test(value)) {
+        displayError(`Le ${name} invalide.`);
+        return false;
+    }
+    return true;
+
+}
+
+/**
+ *
+ * is a Valide date? and show the error if not.
+ * @param {string} dateInput date input(date).
+ * @return {boolean} false if not and true if it is valide.
+ */
+function isValideDate(dateInput) {
+
+    let birthDay = new Date(dateInput);
+    if (isNaN(birthDay)) {
+        displayError(`Le birthDate invalide.`);
+        return false;
+    };
+    return true;
+}
+
+/**
+ * is valide amount ?  show the error if not.
+ * @param {string} tel input amount
+ * @returns {boolean} false if not and true if it is valide.
+ */
+function isValideAmounr(tel) {
+    const regextel = new RegExp(/[0-9]/gi);
+
+    if (!regextel.test(tel)) {
+        displayError(`Le numéro de télephone est invalide.`);
+        return false;
+    }
+    return true;
 
 }
