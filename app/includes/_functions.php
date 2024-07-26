@@ -71,3 +71,19 @@ function stripTagsArray(array &$data): void
 {
     $data = array_map('strip_tags', $data);
 }
+
+
+
+
+function getAllTransactionsByDate(PDO $dbCo){
+    $query = $dbCo->prepare("SELECT * FROM `transaction` ORDER BY `transaction`.`date_transaction` ASC");
+    $isQueryOk = $query->execute();
+
+    $AllTransactions = $query->fetchAll();
+    if (!$isQueryOk) {
+        triggerError("connection");
+    }
+    echo json_encode([
+        $AllTransactions 
+    ]);
+}
