@@ -148,3 +148,21 @@ export function getSumMoney() {
 
 
 }
+
+
+export function getCategories(){
+
+callApi("POST", {
+        action: "getCategories",
+        token: getToken()
+
+    }).then(data => {
+        if (!data.isOk || !data[token] === getToken()) {
+            displayError(data['errorMessage']);
+            return;
+        }
+        document.getElementById('sumMoney').innerHTML = data["sumMoney"];
+        console.log(data);
+    });
+
+}

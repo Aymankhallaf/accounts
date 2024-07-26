@@ -106,7 +106,7 @@ function getTransactionsByDate(PDO $dbCo, $dateMy)
  * @param PDO $dbCo db connection.
  * @return void
  */
-function getAllTransactions(PDO $dbCo):void
+function getAllTransactions(PDO $dbCo): void
 {
     $query = $dbCo->prepare("SELECT * FROM `transaction` ORDER BY `transaction`.`date_transaction` DESC");
     $isQueryOk = $query->execute();
@@ -123,7 +123,14 @@ function getAllTransactions(PDO $dbCo):void
 }
 
 
-function getSumMoney(PDO $dbCo){
+
+/**
+ * Gets Sum Money.
+ * @param PDO $dbCo connection database
+ * @return void
+ */
+function getSumMoney(PDO $dbCo): void
+{
     $query = $dbCo->prepare("SELECT SUM(amount) FROM `transaction`;");
     $isQueryOk = $query->execute();
 
@@ -134,6 +141,23 @@ function getSumMoney(PDO $dbCo){
     echo json_encode([
         'isOk' => $isQueryOk,
         "token" => $_SESSION['token'],
-        "sumMoney" =>$sumMoney
+        "sumMoney" => $sumMoney
+    ]);
+}
+
+
+function getCategories(PDO $dbCo): void
+{
+    $query = $dbCo->prepare("SELECT category_name FROM `category`");
+    $isQueryOk = $query->execute();
+
+    $categories = $query->fetchAll();
+    if (!$isQueryOk) {
+        triggerError("connection");
+    }
+    echo json_encode([
+        'isOk' => $isQueryOk,
+        "token" => $_SESSION['token'],
+        "categories" => $categories
     ]);
 }
