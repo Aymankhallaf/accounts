@@ -62,7 +62,7 @@ generateToken();
                 <h2 class="my-0 fw-normal fs-4">Solde aujourd'hui</h2>
             </div>
             <div class="card-body">
-                <p class="card-title pricing-card-title text-center fs-1">625,34 €</p>
+                <p id="sumMoney" class="card-title pricing-card-title text-center fs-1">625,34 €</p>
             </div>
         </section>
 

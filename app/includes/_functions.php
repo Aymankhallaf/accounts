@@ -121,3 +121,19 @@ function getAllTransactions(PDO $dbCo):void
         $AllTransactions
     ]);
 }
+
+
+function getSumMoney(PDO $dbCo){
+    $query = $dbCo->prepare("SELECT SUM(amount) FROM `transaction`;");
+    $isQueryOk = $query->execute();
+
+    $sumMoney = $query->fetchColumn();
+    if (!$isQueryOk) {
+        triggerError("connection");
+    }
+    echo json_encode([
+        'isOk' => $isQueryOk,
+        "token" => $_SESSION['token'],
+        "sumMoney" =>$sumMoney
+    ]);
+}

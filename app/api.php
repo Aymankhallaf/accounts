@@ -25,5 +25,10 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && $inputData['action'] === 'getTransa
     //this month and year
     $dateMY = date("Y-m");
     getTransactionsByDate($dbCo, $dateMY);
+
 }
 
+//sum money
+if ($_SERVER['REQUEST_METHOD'] === 'POST' && $inputData['action'] === 'getSumMoney') {
+    getSumMoney($dbCo);
+}

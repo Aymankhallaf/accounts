@@ -87,12 +87,6 @@ export function displayTransaction(transaction) {
 }
 
 
-function getLogoCategory(idCategory){
-    
-
-}
-
-
 
 /**
  *
@@ -105,17 +99,42 @@ export function getTransactions() {
         token: getToken()
 
     }).then(data => {
-        if (!data.isOk ||! data[token]===getToken()) {
+        if (!data.isOk || !data[token] === getToken()) {
             displayError(data['errorMessage']);
             return;
         }
-           
+
         data[0].forEach(transaction => {
 
             displayTransaction(transaction);
         });
 
 
+    });
+
+
+}
+
+
+
+
+/**
+ *
+ *send request to api to get sum money data.or return
+ * @return {void} 
+ */
+export function getSumMoney() {
+    callApi("POST", {
+        action: "getSumMoney",
+        token: getToken()
+
+    }).then(data => {
+        if (!data.isOk || !data[token] === getToken()) {
+            displayError(data['errorMessage']);
+            return;
+        }
+        document.getElementById('sumMoney').innerHTML = data["sumMoney"];
+        console.log(data);
     });
 
 
