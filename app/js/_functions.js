@@ -224,7 +224,7 @@ function isValideDate(dateInput) {
 
     let birthDay = new Date(dateInput);
     if (isNaN(birthDay)) {
-        displayError(`Le birthDate invalide.`);
+        displayError(`Le date invalide.`);
         return false;
     };
     return true;
@@ -239,9 +239,31 @@ function isValideAmounr(tel) {
     const regextel = new RegExp(/[0-9]/gi);
 
     if (!regextel.test(tel)) {
-        displayError(`Le numéro de télephone est invalide.`);
+        displayError(`Le amount est invalide.`);
         return false;
     }
     return true;
 
 }
+
+
+export function insertOperation(){
+
+    callApi("POST", {
+            action: "insertOperation",
+            token: getToken()
+    
+        }).then(data => {
+            if (!data.isOk || !data[token] === getToken()) {
+                displayError(data['errorMessage']);
+                return;
+            }
+            data["categories"].forEach(Category => {
+    
+                displayCategory(Category);
+            });
+    
+            console.log(data);
+        });
+    
+    }

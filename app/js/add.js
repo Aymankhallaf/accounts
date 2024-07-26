@@ -5,3 +5,5 @@ addEventListener("load", (event) => {
 console.log("ok");
 F.getCategories();
 });
+
+document.getElementById("reservation-form").addEventListener("submit", handleSubmit)

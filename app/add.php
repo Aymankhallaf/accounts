@@ -59,7 +59,7 @@ generateToken();
                 <h1 class="my-0 fw-normal fs-4">Ajouter une opération</h1>
             </div>
             <div class="card-body">
-                <form action="api.php" method="POST">
+                <form id="insertOperation" action="api.php" method="POST">
                     <div class="mb-3">
                         <label for="name" class="form-label">Nom de l'opération *</label>
                         <input type="text" class="form-control" name="name" id="name" placeholder="Facture d'électricité" required>
